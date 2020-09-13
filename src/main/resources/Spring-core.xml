@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="jpaAccountDao" class="com.spring.source.core.initantiating.JpaAccountDao"/>
+    <bean id="jpaItemDao" class="com.spring.source.core.initantiating.JpaItemDao"/>
+    <import resource="Spring-core-sub.xml"/>
+    <!--static factory method -->
+    <bean id="clientService" class="com.spring.source.core.initantiating.ClientService" factory-method="createInstance"/>
+    <bean id="defaultServiceLoader" class="com.spring.source.core.initantiating.DefaultServiceLoader"/>
+    <!--create a bean by factory method-->
+    <bean id="serverService" factory-bean="defaultServiceLoader" factory-method="createServerService"/>
+</beans>

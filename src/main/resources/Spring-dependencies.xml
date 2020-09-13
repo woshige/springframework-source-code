@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="biz" class="com.spring.source.core.dependencies.constructor.Biz"/>
+    <bean id="bar" class="com.spring.source.core.dependencies.constructor.Bar"/>
+    <bean id="foo" class="com.spring.source.core.dependencies.constructor.Foo">
+        <constructor-arg ref="bar"/>
+        <constructor-arg ref="biz"/>
+    </bean>
+    <!--
+      constructor-based dependency injection 1.type 2.name 3.index
+    -->
+    <!--<bean id="ExampleBean" class="com.spring.source.core.dependencies.ExampleBean">-->
+        <!--<constructor-arg type="java.lang.String" value="exam"/>-->
+        <!--<constructor-arg type="java.lang.Integer" value="1000"/>-->
+        <!--<constructor-arg type="java.lang.Integer" value="1000"/>-->
+    <!--</bean>-->
+
+
+    <!--<bean id="exampleBean" class="com.spring.source.core.dependencies.ExampleBean">-->
+        <!--<constructor-arg name="userName" value="exam"/>-->
+        <!--<constructor-arg name="age" value="100"/>-->
+        <!--<constructor-arg name="number" value="1000"/>-->
+    <!--</bean>-->
+
+
+    <!--<bean id="exampleBean" class="com.spring.source.core.dependencies.ExampleBean">-->
+        <!--<constructor-arg index="0" value="exam"/>-->
+        <!--<constructor-arg index="1" value="1000"/>-->
+        <!--<constructor-arg index="2" value="2000"/>-->
+    <!--</bean>-->
+
+
+    <bean id="exampleBean" class="com.spring.source.core.dependencies.constructor.ExampleBean">
+        <constructor-arg index="0" value="exam"/>
+        <constructor-arg name="age" value="1000"/>
+        <constructor-arg type="java.lang.Integer" value="1000"/>
+    </bean>
+</beans>
